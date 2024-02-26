@@ -11,7 +11,7 @@ class Command(BaseCommand):
     help = 'Modifie un evenement existant'
 
     def handle(self, *args, **kwargs):
-        if is_authenticated('Gestion'):
+        if is_authenticated('Gestion') or is_authenticated('Support'):
             event_id = input('event_id: ')
 
             try:

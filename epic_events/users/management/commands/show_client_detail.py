@@ -27,10 +27,10 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS(
                 f"Information sur le client n°{client.id}"))
             self.stdout.write(self.style.SUCCESS(f"{client.information}\n"
-                                                f"name:{client.name}\nemail:{client.email}\n"
-                                                f"telephone:{client.telephone}\n"
-                                                f"compagny_name:{client.compagny_name}\n"
-                                                f"creation_date:{client.creation_date}\n"
-                                                f"support_contact:{client.support_contact}"))
+                                                 f"name:{client.name}\nemail:{client.email}\n"
+                                                 f"telephone:{client.telephone}\n"
+                                                 f"compagny_name:{client.compagny_name}\n"
+                                                 f"creation_date:{client.creation_date}\n"
+                                                 f"support_contact:{client.support_contact}"))
         else:
             self.stdout.write(self.style.ERROR('vous n\'etes pas autorisé à acceder au données'))

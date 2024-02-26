@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from users.permissions import is_authenticated
 
+
 class Command(BaseCommand):
     help = 'Modifie un utilisateur existant'
 

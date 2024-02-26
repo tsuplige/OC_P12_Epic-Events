@@ -6,10 +6,10 @@ from users.permissions import is_authenticated
 class Command(BaseCommand):
     help = 'Crée un nouvel utilisateur'
 
-    def add_arguments(self, parser):
-        parser.add_argument('username', type=str, help='Nom d\'utilisateur')
-        parser.add_argument('email', type=str, help='Adresse e-mail')
-        parser.add_argument('department', type=str, help='Département')
+    # def add_arguments(self, parser):
+    #     parser.add_argument('username', type=str, help='Nom d\'utilisateur')
+    #     parser.add_argument('email', type=str, help='Adresse e-mail')
+    #     parser.add_argument('department', type=str, help='Département')
 
     def handle(self, *args, **kwargs):
 

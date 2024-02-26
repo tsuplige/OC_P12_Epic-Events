@@ -46,7 +46,7 @@ class Command(BaseCommand):
                 event.date_end = new_date_end
             if new_contract_id:
                 try:
-                    new_contract = Client.objects.get(id=new_contract_id)
+                    new_contract = Contract.objects.get(id=new_contract_id)
                 except ObjectDoesNotExist:
                     self.stdout.write(self.style.ERROR(
                         f"Le contrat avec l'ID '{new_contract_id}' n'existe pas."

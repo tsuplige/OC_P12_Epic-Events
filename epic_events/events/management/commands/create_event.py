@@ -16,7 +16,7 @@ class Command(BaseCommand):
             title = input('title: ')
             contract_id = input('contract_id: ')
             try:
-                contract = Client.objects.get(id=contract_id)
+                contract = Contract.objects.get(id=contract_id)
             except ObjectDoesNotExist:
                 self.stdout.write(self.style.ERROR(
                         f"Le contrat avec l'ID '{contract_id}' n'existe pas."
@@ -43,15 +43,15 @@ class Command(BaseCommand):
                 return
 
             event = Event.objects.create(title=title,
-                                        contract=contract,
-                                        date_start=date_start,
-                                        date_end=date_end,
-                                        client=client,
-                                        support_contact=support_contact
-                                        )
+                                         contract=contract,
+                                         date_start=date_start,
+                                         date_end=date_end,
+                                         client=client,
+                                         support_contact=support_contact
+                                         )
 
             self.stdout.write(self.style.SUCCESS(
-                    "évenement créé avec succès !"))
+                    f"évenement : {event} créé avec succès !"))
 
         else:
             self.stdout.write(self.style.ERROR(

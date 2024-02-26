@@ -1,5 +1,4 @@
 import jwt
-from django.contrib.auth import get_user_model
 
 
 def is_token_valide():

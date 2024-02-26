@@ -12,6 +12,8 @@ class Command(BaseCommand):
             events = Event.objects.all()
             for event in events:
                 self.stdout.write(self.style.SUCCESS(
-                    f"id:{event.id} | title:{event.title} | contract:{event.contract} | client:{event.client} | support_contact:{event.support_contact}"))
+                    f"id:{event.id} | title:{event.title} |"
+                    f" contract:{event.contract} | client:{event.client} "
+                    f"| support_contact:{event.support_contact}"))
         else:
             self.stdout.write(self.style.ERROR('vous n\'etes pas autorisé à acceder au données'))

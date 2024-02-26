@@ -26,7 +26,8 @@ class Command(BaseCommand):
 
             self.stdout.write(self.style.SUCCESS(
                 f"Information sur le client n°{event.id}"))
-            self.stdout.write(self.style.SUCCESS(f"title:{event.title}\ncontract:{event.contract}\n"
+            self.stdout.write(self.style.SUCCESS(f"title:{event.title}\n"
+                                                 f"contract:{event.contract}\n"
                                                  f"client:{event.client}\n"
                                                  f"date_start:{event.date_start}\n"
                                                  f"date_end:{event.date_end}\n"

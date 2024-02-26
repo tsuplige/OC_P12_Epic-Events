@@ -39,7 +39,7 @@ class Command(BaseCommand):
                                                client=client)
 
             self.stdout.write(self.style.SUCCESS(
-                "Contrat créé avec succès !"))
+                f"Contrat : {contract} créé avec succès !"))
 
         else:
             self.stdout.write(self.style.ERROR(

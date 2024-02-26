@@ -5,15 +5,16 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import get_user_model
 
 
-
 class Command(BaseCommand):
     help = 'Crée un nouveau client'
 
     # def add_arguments(self, parser):
     #     parser.add_argument('name', type=str, help='Nom du client')
     #     parser.add_argument('email', type=str, help='Adresse e-mail')
-    #     parser.add_argument('telephone', type=str, help='Numéro de téléphone')
-    #     parser.add_argument('company_name', type=str, help='Nom de la société')
+    #     parser.add_argument(
+    # 'telephone', type=str, help='Numéro de téléphone')
+    #     parser.add_argument(
+    # 'company_name', type=str, help='Nom de la société')
 
     def handle(self, *args, **kwargs):
         if is_authenticated('Commercial'):
@@ -35,7 +36,7 @@ class Command(BaseCommand):
                                            compagny_name=compagny_name,
                                            support_contact=support_contact)
             self.stdout.write(self.style.SUCCESS(
-                f"Client '{name}' créé avec succès"))
+                f"Client '{client.name}' créé avec succès"))
         else:
             self.stdout.write(self.style.ERROR(
                 'vous n\'etes pas autorisé à créé des clients'))

@@ -3,14 +3,19 @@ from users.models import Client
 from django.core.exceptions import ObjectDoesNotExist
 from users.permissions import is_support_contact
 
+
 class Command(BaseCommand):
     help = 'Modifie un client existant'
 
     # def add_arguments(self, parser):
-    #     parser.add_argument('client_id', type=int, help='ID du client à modifier')
-    #     parser.add_argument('--email', type=str, help='Nouvelle adresse e-mail')
-    #     parser.add_argument('--telephone', type=str, help='Nouveau numéro de téléphone')
-    #     parser.add_argument('--company_name', type=str, help='Nouveau nom de la société')
+    #     parser.add_argument(
+    # 'client_id', type=int, help='ID du client à modifier')
+    #     parser.add_argument(
+    # '--email', type=str, help='Nouvelle adresse e-mail')
+    #     parser.add_argument(
+    # '--telephone', type=str, help='Nouveau numéro de téléphone')
+    #     parser.add_argument(
+    # '--company_name', type=str, help='Nouveau nom de la société')
 
     def handle(self, *args, **kwargs):
 
@@ -40,6 +45,8 @@ class Command(BaseCommand):
                 client.company_name = new_company_name
 
             client.save()
-            self.stdout.write(self.style.SUCCESS(f"Client avec l'ID '{client_id}' modifié avec succès"))
+            self.stdout.write(self.style.SUCCESS(
+                f"Client avec l'ID '{client_id}' modifié avec succès"))
         else:
-            self.stdout.write(self.style.ERROR(f"Vous n'etes pas autoriser a changer les information du Client n°'{client_id}"))
+            self.stdout.write(self.style.ERROR(
+                f"Vous n'etes pas autoriser a changer les information du Client n°'{client_id}"))

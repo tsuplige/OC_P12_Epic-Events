@@ -12,6 +12,10 @@ class Command(BaseCommand):
             clients = Client.objects.all()
             for client in clients:
                 self.stdout.write(self.style.SUCCESS(
-                    f"id:{client.id} | name:{client.name} | email:{client.email} | phone:{client.telephone}"))
+                    f"id:{client.id} |"
+                    f" name:{client.name} |"
+                    f" email:{client.email} |"
+                    f" phone:{client.telephone}"))
         else:
-            self.stdout.write(self.style.ERROR('vous n\'etes pas autorisé à acceder au données'))
+            self.stdout.write(self.style.ERROR(
+                'vous n\'etes pas autorisé à acceder au données'))

@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from users.permissions import is_authenticated
+import sentry_sdk
 
 
 class Command(BaseCommand):
@@ -37,6 +38,7 @@ class Command(BaseCommand):
             user.save()
             self.stdout.write(self.style.SUCCESS(
                 f"Utilisateur '{username}' modifié avec succès"))
+            sentry_sdk.capture_message('Un collaborateur a été modifié')
         else:
             self.stdout.write(self.style.ERROR(
                 'vous n\'etes pas autorisé à modifier ses données'))

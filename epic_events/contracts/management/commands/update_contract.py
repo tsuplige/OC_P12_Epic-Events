@@ -4,6 +4,7 @@ from contracts.models import Contract
 from users.models import Client
 from django.core.exceptions import ObjectDoesNotExist
 from users.permissions import is_authenticated, is_support_contact
+import sentry_sdk
 
 
 class Command(BaseCommand):
@@ -55,6 +56,11 @@ class Command(BaseCommand):
             contract.save()
             self.stdout.write(self.style.SUCCESS(
                 f"Contrat '{contract.id}' modifié avec succès"))
+
+            sentry_sdk.capture_message(f'Le contrat n°{contract.id} a été Modifié')
+            if new_status == 'Sign':
+                sentry_sdk.capture_message(
+                    f'le contrat n°{contract.id} a été Signé!')
         else:
             self.stdout.write(self.style.ERROR(
                 'vous n\'etes pas autorisé à modifier ses données'))

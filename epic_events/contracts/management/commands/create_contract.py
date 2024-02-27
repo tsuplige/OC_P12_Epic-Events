@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from users.models import Client
 from users.permissions import is_authenticated
 from django.core.exceptions import ObjectDoesNotExist
+import sentry_sdk
 
 
 class Command(BaseCommand):
@@ -40,6 +41,10 @@ class Command(BaseCommand):
 
             self.stdout.write(self.style.SUCCESS(
                 f"Contrat : {contract} créé avec succès !"))
+            sentry_sdk.capture_message('Un contrat a été Créé')
+            if status == 'Sign':
+                sentry_sdk.capture_message(
+                    f'le contrat n°{contract.id} a été Signé!')
 
         else:
             self.stdout.write(self.style.ERROR(

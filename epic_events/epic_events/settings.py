@@ -12,13 +12,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import sentry_sdk
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 sentry_sdk.init(
-    dsn="https://17cdf176f301aae53ff1d4ee28b68140@o4506734304231424.ingest.sentry.io/4506817835302912",
+    dsn=os.getenv('SEBTRY_KEY'),
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     traces_sample_rate=1.0,
@@ -32,7 +34,7 @@ sentry_sdk.init(
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-9xx115lzi1mm+t3f#saxvj6r8=+p!%2*@g-dj%n9!ddz7!iuou"
+SECRET_KEY = os.getenv('DJANGO_SECRETE_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

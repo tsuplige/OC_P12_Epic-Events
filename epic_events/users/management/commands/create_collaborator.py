@@ -31,6 +31,7 @@ class Command(BaseCommand):
 
             self.stdout.write(self.style.SUCCESS(
                 f"Utilisateur '{username}' créé avec succès : {user}"))
+
             sentry_sdk.capture_message('Un collaborateur a été créé')
 
         else:
